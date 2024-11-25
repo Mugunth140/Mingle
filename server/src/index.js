@@ -12,7 +12,7 @@ app.use("/api/auth", authRoutes)
 
 
 app.get("/", (req, res) => {
-    res.send("<h1>It's an chat application</h1>")
+    res.send("<h1>Server Running Successfully</h1>")
 })
 
 app.listen(PORT || 5000,  () => {
