@@ -1,3 +1,12 @@
+#server ignore
+server/node_modules
+server/.env
+
+#client ignore
+client/node_modules
+client/.env
+
+
 # Logs
 logs
 *.log
