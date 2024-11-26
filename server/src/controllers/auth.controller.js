@@ -17,7 +17,7 @@ export const signup = async (req, res) => {
     }
     const user = await User.findOne({ email });
 
-    if (user) res.status(400).json({ message: "Email Already Exists" });
+    if (user) return res.status(400).json({ message: "Email Already Exists" });
 
     const salt = await bcrypt.genSalt(10);
     const hashPassword = await bcrypt.hash(password, salt);
@@ -77,7 +77,7 @@ export const login = async (req, res) => {
 
 export const logout = (req, res) => {
   try {
-    res.cookie("jwt-token", "", { maxAge: 0 });
+    res.cookie("token", "", { maxAge: 0 });
     res.status(200).json({ message: "Logged out successfully" });
   } catch (error) {
     console.log(`Error on logout controller ${error.message}`);
@@ -100,9 +100,18 @@ export const updateProfile = async (req, res) => {
         },{new:true} )
 
         res.status(201).json(updatedUser)
-        
+
     } catch (error) {
         console.log(`Error on updateProfile controller ${error.message}`);
         res.status(500).json({ message: "Internal Server Error" });
     }
 } 
+
+export const authCheck = (req, res) => {
+    try {
+        res.status(200).json(req.user)
+    } catch (error) {
+        console.log(`Error on Check Auth controller ${error.message}`);
+        res.status(500).json({ message: "Internal Server Error" });
+    }
+}
