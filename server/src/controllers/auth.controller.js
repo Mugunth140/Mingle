@@ -1,7 +1,7 @@
 import User from "../models/user.model.js";
 import bcrypt from "bcrypt";
 import { tokenGenerator } from "../utils/utils.js";
-import cloud from "../lib/cloud.js"
+import cloud from "../lib/cloud.js";
 
 export const signup = async (req, res) => {
   const { username, email, password } = req.body;
@@ -86,32 +86,35 @@ export const logout = (req, res) => {
 };
 
 export const updateProfile = async (req, res) => {
-    try {
-        const {profilepic} = req.body
-        const userId = req.user._id
+  try {
+    const { profilepic } = req.body;
+    const userId = req.user._id;
 
-        if (!profilepic) {
-            return res.status(400).json({message:"Required profilepic"})
-        }
-
-        const uploadres = await cloud.uploader.upload(profilepic)
-        const updatedUser = await User.findByIdAndUpdate(userId,{
-            profilepic: uploadres.secure_url
-        },{new:true} )
-
-        res.status(201).json(updatedUser)
-
-    } catch (error) {
-        console.log(`Error on updateProfile controller ${error.message}`);
-        res.status(500).json({ message: "Internal Server Error" });
+    if (!profilepic) {
+      return res.status(400).json({ message: "Required profilepic" });
     }
-} 
+
+    const uploadres = await cloud.uploader.upload(profilepic);
+    const updatedUser = await User.findByIdAndUpdate(
+      userId,
+      {
+        profilepic: uploadres.secure_url,
+      },
+      { new: true }
+    );
+
+    res.status(201).json(updatedUser);
+  } catch (error) {
+    console.log(`Error on updateProfile controller ${error.message}`);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+};
 
 export const authCheck = (req, res) => {
-    try {
-        res.status(200).json(req.user)
-    } catch (error) {
-        console.log(`Error on Check Auth controller ${error.message}`);
-        res.status(500).json({ message: "Internal Server Error" });
-    }
-}
+  try {
+    res.status(200).json(req.user);
+  } catch (error) {
+    console.log(`Error on Check Auth controller ${error.message}`);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+};
