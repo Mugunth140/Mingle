@@ -1,0 +1,57 @@
+@import "../../sass/library.scss";
+
+.signup-container {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .form-container {
+        text-align: center;
+        height: auto;
+        min-width: 325px;
+        max-width: 30vw;
+        display: flex;
+        border: 1.5px solid black;
+        border-radius: 12px;
+        flex-direction: column;
+        gap: 2rem;
+        padding: 2em;
+
+
+        & > h1 {
+            text-align: center;
+            font-size: 2.5em;
+        }
+
+        & > input {
+            height: 3rem;
+            padding-inline: 1em;
+            outline: none;
+            border: 1px solid lightgrey;
+            border-radius: 5px;
+            font-size: 1em;
+
+            &:focus{
+                border:1px solid black
+            }
+        }
+
+        & > button {
+            padding: 1.1em 3em;
+            font-size: 1em;
+            text-transform: capitalize;
+            border-radius: 5px;
+            background: black;
+            color: white;
+            border: none;
+        }
+
+        & > p > a {
+            text-decoration: none;
+        }
+    }
+}
+
+
