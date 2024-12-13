@@ -1,2 +1,18 @@
-@use './index ' as *
+@use './index ' as *;
 
+header{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    background: $bg;
+   
+
+    .navbar-logo {
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #000;
+
+    }
+}
