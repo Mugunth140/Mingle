@@ -1,14 +1,15 @@
 import  { useEffect , React } from 'react'
 import Navbar from './components/Navbar'
 import  { Routes, Route, Navigate } from 'react-router-dom'
-import HomePage  from './pages/HomePage/HomePage'
-import SignupPage from './pages/SignupPage/SignupPage'
+import HomePage  from './pages/HomePage'
+import SignupPage from './pages/SignupPage'
 import LoginPage  from './pages/LoginPage'
 import SettingPage  from './pages/SettingPage'
 import ProfilePage  from './pages/ProfilePage'
 
 import { useAuthStore } from './store/useAuthStore'
 import Loader from "react-js-loader";
+import {Toaster} from "react-hot-toast";
 
 const App = () => {
  
@@ -34,6 +35,7 @@ if(isChecking && !authUser) return (
       <Route path='/Settings' element={<SettingPage />} />
       <Route path='/Profile' element={authUser ? <ProfilePage /> : <Navigate to="/login" />} />
     </Routes>
+    <Toaster />
    </div>
     </>
   )

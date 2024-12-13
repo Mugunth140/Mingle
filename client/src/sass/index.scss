@@ -1,0 +1,22 @@
+//pages
+@use "./fonts.scss";
+@use './variables.scss' as var;
+@use "pages/HomePage.scss";
+@use "pages/SignupPage.scss";
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins";
+}
+
+body {
+    height: 100vh;
+    width: 100%;
+    background: var.$bg;
+}
+
+
