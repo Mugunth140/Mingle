@@ -1,7 +1,17 @@
 import User from "../models/user.model.js";
-import bcrypt from "bcrypt";
+import CryptoJS from "crypto-js";
 import { tokenGenerator } from "../utils/utils.js";
 import cloud from "../lib/cloud.js";
+
+const SECRET_KEY = "my_secret_key";
+
+const encryptPassword = (password) => {
+  return CryptoJS.AES.encrypt(password, SECRET_KEY).toString();
+};
+
+const decryptPassword = (encryptedPassword) => {
+  return CryptoJS.AES.decrypt(encryptedPassword, SECRET_KEY).toString(CryptoJS.enc.Utf8);
+};
 
 export const signup = async (req, res) => {
   const { username, email, password } = req.body;
@@ -19,13 +29,12 @@ export const signup = async (req, res) => {
 
     if (user) return res.status(400).json({ message: "Email Already Exists" });
 
-    const salt = await bcrypt.genSalt(10);
-    const hashPassword = await bcrypt.hash(password, salt);
+    const encryptedPassword = encryptPassword(password);
 
     const newUser = new User({
       username,
       email,
-      password: hashPassword,
+      password: encryptedPassword,
     });
 
     if (newUser) {
@@ -55,9 +64,8 @@ export const login = async (req, res) => {
     if (!user) {
       return res.status(400).json({ message: "Invalid Crendential" });
     }
-    const Valid = await bcrypt.compare(password, user.password);
-
-    if (!Valid) {
+    const decryptedPassword = decryptPassword(user.password);
+    if (password !== decryptedPassword) {
       return res.status(400).json({ message: "Invalid Crendential" });
     }
 

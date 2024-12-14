@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import { Server } from "../lib/axios";
 import { toast } from "react-hot-toast";
-import { logout } from "../../../server/src/controllers/auth.controller";
+//2import { logout } from "../../../server/src/controllers/auth.controller";
 
 export const useAuthStore = create((set) => ({
     authUser: null,
