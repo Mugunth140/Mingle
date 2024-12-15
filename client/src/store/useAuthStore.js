@@ -35,6 +35,20 @@ export const useAuthStore = create((set) => ({
         }
     },
 
+    login: async (data) => {
+        set({ isLogin: true }); // Key updated for consistency
+        try {
+            const res = await Server.post("/auth/login", data);
+            set({ authUser: res.data });
+            toast.success("loggedin successfully");
+        } catch (error) {
+            console.error("Login error:", error);
+            toast.error(error.response?.data?.message || "Login failed");
+        } finally {
+            set({ isLogin: false });
+        }
+    },
+
     logout: async () => {
       try {
             await Server.post("/auth/logout");
