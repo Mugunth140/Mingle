@@ -1,0 +1,111 @@
+@use "./index"as *;
+
+.login-container {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: $bg;
+
+    .form-container {
+        text-align: center;
+        height: auto;
+        min-width: 325px;
+        max-width: 30vw;
+        display: flex;
+        border: 1px solid lightgray;
+        border-radius: 12px;
+        flex-direction: column;
+        //gap: 1.5rem;
+        padding: 2em;
+
+
+        & > h1 {
+            text-align: center;
+            font-size: 2.5em;
+            color: $main-text;
+            font-weight: 600;
+        }
+
+        & > p {
+            margin-top: 0.5em;
+            font-size: 1em;
+            color: lightgray;
+            font-weight: 600;
+        }
+
+        label {
+            width: 100%;
+            text-align: left;
+            color: lightgrey;
+            font-size: 1em;
+            font-weight: 500;
+            margin-top: 1.5em;
+        }
+        .form-item {
+            border: 0.6px solid lightgrey;
+            border-radius: 5px;
+            box-shadow: none;
+            height: 3rem;
+            display: flex;
+            align-items: center;
+            gap: 1em;
+            padding-left: 1em;
+            margin-top: 0.5em;
+            padding: 20px 20px;
+            border: 1px solid #d1d5db; /* Soft gray border */
+  border-radius: 5px;         /* Rounded corners */
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); 
+
+            &:focus {
+            border: 1px solid white;
+            }
+        }
+
+        .form-item > input {
+            outline: none;
+            border: none;
+            background: transparent;
+            font-size: 1em;
+            color: lightgrey;
+            
+            & > :focus {
+            color: white;
+            }
+        }
+
+        .form-item svg {
+            min-height: 20px;
+            min-width: 20px;
+        }
+
+        .submit-btn {
+            padding: 1.1em 3em;
+            font-size: 1em;
+            text-transform: capitalize;
+            border-radius: 5px;
+            background: $accent;
+            color: $main-text;
+            border: none;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+
+        .showpassword-btn {
+
+            background: transparent;
+            border: none;
+            transition: all 1s;
+        }
+
+        & > p > a {
+           
+            text-decoration: none;
+            margin-left: 2px;
+            color: $accent;
+        }
+    }
+}
+
+

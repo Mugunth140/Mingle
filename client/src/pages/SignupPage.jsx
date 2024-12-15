@@ -41,6 +41,9 @@ const SignupPage = () => {
   return (
     <div className="signup-container">
       <form onSubmit={handleSubmit} className="form-container">
+      <center>
+       <img src="/logo.png" alt="logo" height={64} width={64}/>
+        </center>
         <h1>Create Account</h1>
         <p>Get started with your free account</p>
         <label>
