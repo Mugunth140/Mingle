@@ -76,22 +76,24 @@
         }
 
         .form-item svg {
-            font-size: clamp(1.5em, 1.6em, 1.8em);
+            min-height: 20px;
+            min-width: 20px;
         }
 
-        & > button {
+        .submit-btn {
             padding: 1.1em 3em;
             font-size: 1em;
             text-transform: capitalize;
             border-radius: 5px;
             background: $accent;
-            color: black;
+            color: $main-text;
             border: none;
             margin-top: 2em;
             margin-bottom: 1em;
         }
 
         .showpassword-btn {
+
             background: transparent;
             border: none;
             transition: all 1s;

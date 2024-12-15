@@ -22,7 +22,7 @@ const SignupPage = () => {
   const {signup, isSignup} = useAuthStore();
 
   const validateForm = () => {
-   if(!formdata.username.trim() || !formdata.password.trim()) return toast.error("All fields are required");
+   if(!formdata.username.trim() || !formdata.email.trim() || !formdata.password.trim()) return toast.error("All fields are required");
    if(!/\S+@\S+\.\S+/.test(formdata.email)) return toast.error("Invalid email address");
    if(formdata.password.length < 8) return toast.error("Password must be at least 8 characters");
 
@@ -86,6 +86,7 @@ const SignupPage = () => {
             }
           />
           <button
+            type="button"
             className="showpassword-btn"
             onClick={() => setShowPassword(!showPassword)}
           >
@@ -96,7 +97,7 @@ const SignupPage = () => {
             )}
           </button>
         </div>
-        <button type='submit' disabled={isSignup} >{isSignup ? 'Loading...' : 'create account'}</button>
+        <button type='submit' disabled={isSignup} className="submit-btn">{isSignup ? 'Loading...' : 'create account'}</button>
         <p>
           Already have an account ? <Link to="/login">Login</Link>
         </p>

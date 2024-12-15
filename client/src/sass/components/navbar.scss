@@ -1,18 +1,57 @@
-@use './index ' as *;
+@import "../variables.scss";
 
 header{
     width: 100%;
     position: fixed;
     top: 0;
-    background: $bg;
+    background: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9;
+    padding: 1em 0;
    
 
     .navbar-logo {
-        width: 50%;
+        width: 45%;
+        
+        & > a {
+        text-decoration: none;
         display: flex;
-        justify-content: center;
         align-items: center;
-        background: #000;
+        gap: 0.5em;
+        }
 
+      .logo-text{
+        font-size: 1.4em;
+        font-weight: 400;
+        font-family: inherit;
+        color: $main-text;
+        text-decoration: none;
+      }
+
+    }
+
+    .navbar-links{
+        width: 45%;
+        display: flex;
+        justify-content:flex-end;
+        align-items: center;
+        gap: 2.5em;
+
+        & > a {
+          text-decoration: none;
+          color: inherit;
+          display: flex;
+          align-items: center;
+          gap: 0.5em;
+
+          & > h1 {
+            font-size: 1.3em;
+            font-weight: 400;
+            font-family: inherit;
+          }
+
+        }
     }
 }
