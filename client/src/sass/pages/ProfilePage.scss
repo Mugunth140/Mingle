@@ -22,7 +22,36 @@
         @include flex;
         justify-content: flex-end;
         padding: 1em 1em 0em 0em;
+        cursor: pointer;
+        transition: all 200ms;
+
+        &:hover {
+          color: $accent;
+        }
+
+        & > input {
+          display: none; 
+        }
       }
+
+      .animate-pulse {
+        animation: pulse 2s infinite;
+        pointer-events: none;
+      }
+      
+      @keyframes pulse {
+        0% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.5;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+
 
     .profile-user-detailes {
       height: auto;

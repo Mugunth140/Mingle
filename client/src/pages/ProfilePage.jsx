@@ -1,4 +1,4 @@
-import React from "react";
+import {React, useState} from "react";
 import { useAuthStore } from "../store/useAuthStore";
 import { GoPerson } from "react-icons/go";
 import { MdOutlineMail } from "react-icons/md";
@@ -7,10 +7,21 @@ import "../sass/pages/ProfilePage.scss";
 
 const ProfilePage = () => {
   const { authUser, isUpdatingProfile, updateProfile } = useAuthStore();
+  const [selectedImg, setSelectedImg] = useState(null);
 
-  const handleimageUpload = async (e) => {
+  const handleImageUpload = async (e) => {
     const file = e.target.files[0];
-    const formData = new FormData();
+    if (!file) return;
+
+    const reader = new FileReader();
+
+    reader.readAsDataURL(file);
+
+    reader.onload = async () => {
+      const base64Image = reader.result;
+      setSelectedImg(base64Image);
+      await updateProfile({ profilepic: base64Image });
+    };
   };
 
   const profileStyle = {
@@ -43,13 +54,25 @@ const ProfilePage = () => {
           <div className="profile-detailes">
             <div className="profile-picture">
               <img
-                src={authUser.profilepic || "./avatar.png"}
+                src={selectedImg || authUser.profilepic || "/avatar.png"}
                 alt="Profile"
                 style={profilePic}
               />
-              <div className="profile-camera">
-              <FaCameraRotate size={25} />
-              </div>
+              <label
+                htmlFor="avatar-upload"
+                className={`profile-camera ${
+                  isUpdatingProfile ? "animate-pulse" : ""
+                }`}
+              >
+                <FaCameraRotate size={25} />
+                <input
+                  type="file"
+                  id="avatar-upload"
+                  accept="image/*"
+                  onChange={handleImageUpload}
+                  disabled={isUpdatingProfile}
+                />
+              </label>
             </div>
             <div className="profile-user-detailes">
               <div className="profile-name">
@@ -57,29 +80,38 @@ const ProfilePage = () => {
                   {" "}
                   <span>User Name</span>
                 </label>
-                <p ><GoPerson color="lightgrey" /> {authUser?.username}</p>
+                <p>
+                  <GoPerson color="lightgrey" /> {authUser?.username}
+                </p>
               </div>
               <div className="profile-email">
                 <label className="profileEmail">
                   {" "}
-                  
                   <span>Email Address</span>
                 </label>
-                <p><MdOutlineMail color="lightgrey" />{authUser?.email}</p>
+                <p>
+                  <MdOutlineMail color="lightgrey" />
+                  {authUser?.email}
+                </p>
               </div>
             </div>
-              <hr />
+            <hr />
             <div className="account-info">
               <div className="account-status">
-              <label>Account status</label>
-              <p style={authUser ? {color : 'rgb(11, 245, 11)'} : {color : 'red'}}>{authUser ? 'Online': 'Offline'}</p>
+                <label>Account status</label>
+                <p
+                  style={
+                    authUser ? { color: "rgb(11, 245, 11)" } : { color: "red" }
+                  }
+                >
+                  {authUser ? "Online" : "Offline"}
+                </p>
               </div>
               <div className="account-member">
                 <label>Member since</label>
                 <p>{authUser.createdAt?.split("T")[0]}</p>
               </div>
             </div>
-          
           </div>
         </div>
       </div>

@@ -13,10 +13,10 @@ import {Toaster} from "react-hot-toast";
 
 const App = () => {
  
-const { AuthCheck, isChecking, authUser} = useAuthStore()
+const { authCheck, isChecking, authUser} = useAuthStore()
 useEffect(() => {
-  AuthCheck()
-},[AuthCheck])
+  authCheck()
+},[authCheck])
 
 const loaderStyle = {
   position: "absolute",

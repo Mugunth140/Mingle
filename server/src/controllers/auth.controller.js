@@ -99,21 +99,18 @@ export const updateProfile = async (req, res) => {
     const userId = req.user._id;
 
     if (!profilepic) {
-      return res.status(400).json({ message: "Required profilepic" });
+      return res.status(400).json({ message: "Profile picture is required" });
     }
 
-    const uploadres = await cloud.uploader.upload(profilepic);
-    const updatedUser = await User.findByIdAndUpdate(
-      userId,
-      {
-        profilepic: uploadres.secure_url,
-      },
-      { new: true }
-    );
+    const uploadRes = await cloud.uploader.upload(profilepic);
+
+    const updatedUser = await User.findByIdAndUpdate(userId, {
+      profilepic: uploadRes.secure_url,
+    }, { new: true });
 
     res.status(201).json(updatedUser);
   } catch (error) {
-    console.log(`Error on updateProfile controller ${error.message}`);
+    console.error(`Error updating profile: ${error.message}`);
     res.status(500).json({ message: "Internal Server Error" });
   }
 };

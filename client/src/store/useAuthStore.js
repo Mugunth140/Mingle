@@ -9,10 +9,10 @@ export const useAuthStore = create((set) => ({
     isUpdatingProfile: false,
     isChecking: true,
 
-    AuthCheck: async () => {
+    authCheck: async () => {
         try {
             const res = await Server.get("/auth/check");
-            set({ authUser: res.data.user });
+            set({ authUser: res.data });
         } catch (error) {
             console.error("Error in AuthCheck:", error);
             set({ authUser: null });
@@ -62,7 +62,7 @@ export const useAuthStore = create((set) => ({
     updateProfile: async (data) => {
         set({ isUpdatingProfile: true });
         try {
-            const res = await Server.patch("/auth/update-profile", data);
+            const res = await Server.put("/auth/update-profile", data);
             set({ authUser: res.data });
             toast.success("Profile updated successfully");
         } catch (error) {
