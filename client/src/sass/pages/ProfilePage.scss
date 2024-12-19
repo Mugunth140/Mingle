@@ -28,11 +28,9 @@
       height: auto;
       width: 100%;
       margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-start;
-      padding: 2em 2em 5em 5em;
+     @include flex;
+     flex-direction: column;
+     padding: 4em 1em;
       gap: 1rem;
 
       // Responsive Styles
@@ -55,6 +53,8 @@
 
           span {
             padding: 0.5rem;
+            font-size: 0.8em;
+            font-weight: 400;
           }
         }
 
@@ -63,10 +63,10 @@
           justify-content: flex-start;
           gap: 0.5em;
           border: 1px solid $accent-dark;
-          width: 22rem;
+          width: clamp(18rem, 26rem, 28rem);
           padding: 0.5em 0.5em 0.5em 1em;
           border-radius: 10px;
-          
+
 
           // Responsive Styles
           @include respond-to('medium') {
@@ -90,6 +90,8 @@
 
           span {
             padding: 0.5rem;
+            font-size: 0.8em;
+            font-weight: 400;
           }
         }
 
@@ -98,7 +100,7 @@
           justify-content: flex-start;
           gap: 0.5em;
           border: 1px solid $accent-dark;
-          width: 22rem;
+          width: clamp(18rem, 26rem, 28rem);
           padding: 0.5em 0.5em 0.5em 1em;
           border-radius: 10px;
 
