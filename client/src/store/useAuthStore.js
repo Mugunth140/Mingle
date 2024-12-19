@@ -57,5 +57,19 @@ export const useAuthStore = create((set) => ({
         } catch (error) {
             toast.error(error.response.data.message || "Logout failed");
         }
+    },
+
+    updateProfile: async (data) => {
+        set({ isUpdatingProfile: true });
+        try {
+            const res = await Server.patch("/auth/update-profile", data);
+            set({ authUser: res.data });
+            toast.success("Profile updated successfully");
+        } catch (error) {
+            console.error("Profile update error:", error);
+            toast.error(error.response.data.message || "Profile update failed");
+        } finally {
+            set({ isUpdatingProfile: false });
+        }
     }
 }));

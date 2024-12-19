@@ -1,0 +1,162 @@
+// Importing variables and mixins
+@use "./index" as *;
+
+// Global Styles
+.profile-page-container {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+// Profile Container Styles
+.profile-container {
+  .profile-detailes {
+    background: $ui-bg;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+
+    .profile-camera {
+        @include flex;
+        justify-content: flex-end;
+        padding: 1em 1em 0em 0em;
+      }
+
+    .profile-user-detailes {
+      height: auto;
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 2em 2em 5em 5em;
+      gap: 1rem;
+
+      // Responsive Styles
+      @include respond-to('medium') {
+        padding: 3em 1em 1em 1em;
+      }
+      @include respond-to('small') {
+        padding: 2em 0.5em 0.5em 0.5em;
+      }
+
+      .profile-name {
+        font-size: 1.5rem;
+        font-weight: 600;
+        gap: 1em;
+
+        label {
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+
+          span {
+            padding: 0.5rem;
+          }
+        }
+
+        p {
+          @include flex;
+          justify-content: flex-start;
+          gap: 0.5em;
+          border: 1px solid $accent-dark;
+          width: 22rem;
+          padding: 0.5em 0.5em 0.5em 1em;
+          border-radius: 10px;
+          
+
+          // Responsive Styles
+          @include respond-to('medium') {
+            width: 18rem;
+          }
+          @include respond-to('small') {
+            width: 15rem;
+          }
+        }
+      }
+
+      .profile-email {
+        font-size: 1.5rem;
+        font-weight: 600;
+        gap: 1em;
+
+        label {
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+
+          span {
+            padding: 0.5rem;
+          }
+        }
+
+        p {
+          @include flex;
+          justify-content: flex-start;
+          gap: 0.5em;
+          border: 1px solid $accent-dark;
+          width: 22rem;
+          padding: 0.5em 0.5em 0.5em 1em;
+          border-radius: 10px;
+
+          // Responsive Styles
+          @include respond-to('medium') {
+            width: 18rem;
+          }
+          @include respond-to('small') {
+            width: 15rem;
+          }
+        }
+      }
+    }
+
+    .account-info {
+      padding: 2em;
+
+      // Responsive Styles
+      @include respond-to('medium') {
+        padding: 1em;
+      }
+      @include respond-to('small') {
+        padding: 0.5em;
+      }
+
+      .account-status {
+        @include flex;
+        justify-content: space-between;
+        gap: 1em;
+        padding: 0.6em 0em;
+
+        label {
+          font-size: 1.2rem;
+          font-weight: 500;
+        }
+
+        p {
+          font-size: 1rem;
+          font-weight: 500;
+        }
+      }
+
+      .account-member {
+        @include flex;
+        justify-content: space-between;
+        gap: 1em;
+        padding: 0.6em 0em;
+
+        label {
+          font-size: 1.2rem;
+          font-weight: 500;
+        }
+
+        p {
+          font-size: 1rem;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+}

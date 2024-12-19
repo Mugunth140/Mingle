@@ -40,7 +40,7 @@ const LoginPage = () => {
         <center>
        <img src="/logo.png" alt="logo" height={64} width={64}/>
         </center>
-        <h1>Welcome back</h1>
+        <h1>Welcome to Mingle</h1>
         <p>Signin to your account</p>
         <label>
           <span>Email</span>

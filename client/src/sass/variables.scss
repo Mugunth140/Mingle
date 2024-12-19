@@ -5,6 +5,9 @@ $bg : #1E232B;
 $main-text: #F6F1F4;
 $accent: rgb(149, 27, 255);
 $accent-light: #6D3CEE;
+$accent-dark: #5327B4;
+$ui-bg:#000033;
+
 
 :root {
   //font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -22,8 +25,30 @@ $accent-light: #6D3CEE;
   -moz-osx-font-smoothing: grayscale;
 }
 
-$accent-light: #6D3CEE;
-$accent-dark: #5327B4;
+
+@mixin flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+}
+
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == 'small' {
+    @media (max-width: 600px) {
+      @content;
+    }
+  }
+  @else if $breakpoint == 'medium' {
+    @media (max-width: 900px) {
+      @content;
+    }
+  }
+  @else if $breakpoint == 'large' {
+    @media (max-width: 1200px) {
+      @content;
+    }
+  }
+}
 
 @media (prefers-color-scheme: light) {
   :root {

@@ -18,9 +18,16 @@ useEffect(() => {
   AuthCheck()
 },[AuthCheck])
 
+const loaderStyle = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform : "translate(-50%, -50%)",
+}
+
 if(isChecking && !authUser) return (
-  <div className='flex justify-center items-center h-screen'>
-     <Loader type="spinner-cub" size={30} className='bg-white'/>
+  <div style={loaderStyle}>
+     <Loader type="spinner-cub" size={30} />
   </div>
 )
 
@@ -32,8 +39,8 @@ if(isChecking && !authUser) return (
       <Route path='/' element={authUser ? <HomePage /> : <Navigate to="/login" />} />
       <Route path='/signup' element={!authUser ? <SignupPage/> : <Navigate to="/" />} />
       <Route path='/login' element={ !authUser ? <LoginPage /> : <Navigate to="/" />} />
-      <Route path='/Settings' element={<SettingPage />} />
-      <Route path='/Profile' element={authUser ? <ProfilePage /> : <Navigate to="/login" />} />
+      <Route path='/settings' element={<SettingPage />} />
+      <Route path='/profile' element={authUser ? <ProfilePage /> : <Navigate to="/login" />} />
     </Routes>
     <Toaster />
    </div>
