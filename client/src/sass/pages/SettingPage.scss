@@ -6,17 +6,28 @@
     color: var(--primary);
     background-color: var(--secondary);
     @include flex;
+
     
 
     .settings{
-        height: max-content;
+        height: 100%;
         width:clamp(40vw,60vw, 80vw);
+        padding-top: 10vh;
+        overflow-y: scroll;
 
         .theme-options {
             @include flex;
             justify-content: flex-start;
             flex-wrap: wrap;
             gap: 1.5em;
+
+            .theme-container {
+                & > h2 {
+                    font-size: 1.5em;
+                font-weight: 600;
+                color: var(--primary);
+                }
+            }
 
             .theme-button {
                 padding: 1em 2em;
@@ -32,6 +43,143 @@
                 background-color: var(--accent);
                 color: var(--primary);
                 border-color: var(--primary);
+            }
+        }
+
+        .preview-container {
+            & > h2 {
+                font-size: 1.5em;
+                font-weight: 600;
+                color: var(--primary);
+            }
+
+            .preview {
+                height: 35rem;
+                background-color: var(--base);
+                border-radius: 10px;
+                @include flex;
+
+                .preview-card {
+                    height: calc(100% - 2em);
+                    width: 80%;
+                    border-radius: 5px;
+                    padding: 1em;
+                    background: var(--secondary);
+
+                    .preview-header {
+                        height: 50px;
+                        @include flex;
+                        justify-content: flex-start;
+                        padding: 2rem 1.5em;
+                        gap: 1em;
+
+                        span {
+                            height: 30px;
+                            width: 30px;
+                            border-radius: 50%;
+                            padding: 1.2em 1.3em;
+                            background-color: var(--accent);
+                            color: var(--primary);
+                            font-size: 1.5em;
+                            @include flex;
+                        }
+
+                        .preview-name {
+                            font-weight: 400;
+                            color: var(--primary);
+                            & > p {
+                                color: rgb(8, 248, 52);
+                            }
+                        }
+                    }
+
+                    .preview-content {
+                         @include flex;
+                         flex-direction: column;
+                        //  background: #000;
+                         
+                        .preview-receiver { 
+                            @include flex;
+                            align-items: flex-start;
+                            flex-direction: column;
+                            width: 100%;
+                            padding-top: 1.5em;
+                            padding: 2em;
+
+                            p {
+                                height: 5em;
+                                width: 14em;
+                                background-color: var(--base);
+                                color: var(--primary);
+                                border-radius: 20px;
+                                font-size: 1em;
+                                font-weight: 400;
+                                align-content: center;
+                                text-align: center;
+                            }
+
+                            span {
+                                color: var(--primary);
+                                font-size: 0.8em;
+                                padding: 1em;
+                            }
+                        }
+
+                        .preview-sender {
+                            @include flex;
+                            align-items: flex-end;
+                            flex-direction: column;
+                            width: 100%;
+                            padding: 0em 2em;
+
+                            p {
+                                height: 6em;
+                                width: 18em;
+                                background-color: var(--accent);
+                                color: var(--primary);
+                                padding-left: 18px;
+                                border-radius: 20px;
+                                font-size: 1em;
+                                font-weight: 400;
+                                align-content: center;
+                                text-align: start;
+                            }
+
+                            span {
+                                color: var(--primary);
+                                font-size: 0.8em;
+                                padding: 1em;
+                            }
+                        }
+                    }
+                    
+                    .preview-input{
+                        @include flex;
+                        gap: 0.5em;
+                        width: 100%;
+
+                        input {
+                            width: 60%;
+                            height: 3em;
+                            border-radius: 15px;
+                            border: 1.2px solid var(--accent);
+                            padding: 1.8em 1.5em;
+                            font: 400 1em 'Poppins', sans-serif;
+                            color: var(--primary);
+                            background-color: var(--base);
+                            outline: none
+                        }
+
+                        button {
+                            @include flex;
+                            padding: 0.8em 1em;
+                            background-color: var(--accent);
+                            border: 1.2px solid var(--accent);
+                            border-radius: 12px;
+                        }
+                    }
+                        
+                }
             }
         }
     }
