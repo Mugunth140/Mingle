@@ -52,19 +52,13 @@ const ProfilePage = () => {
             <img src="./profile-bg.jpg" alt="profile-bg" style={profileStyle} />
           </center>
           <div className="profile-detailes">
-            <div className="profile-picture">
-              <img
-                src={selectedImg || authUser.profilepic || "/avatar.png"}
-                alt="Profile"
-                style={profilePic}
-              />
-              <label
+          <label
                 htmlFor="avatar-upload"
                 className={`profile-camera ${
                   isUpdatingProfile ? "animate-pulse" : ""
                 }`}
               >
-                <FaCameraRotate size={25} />
+                <FaCameraRotate size={25} color="grey" />
                 <input
                   type="file"
                   id="avatar-upload"
@@ -73,6 +67,13 @@ const ProfilePage = () => {
                   disabled={isUpdatingProfile}
                 />
               </label>
+            <div className="profile-picture">
+              <img
+                src={selectedImg || authUser.profilepic || "/avatar.png"}
+                alt="Profile"
+                style={profilePic}
+              />
+              
             </div>
             <div className="profile-user-detailes">
               <div className="profile-name">
@@ -81,7 +82,7 @@ const ProfilePage = () => {
                   <span>User Name</span>
                 </label>
                 <p>
-                  <GoPerson color="lightgrey" /> {authUser?.username}
+                  <GoPerson color="grey" /> {authUser?.username}
                 </p>
               </div>
               <div className="profile-email">
@@ -90,7 +91,7 @@ const ProfilePage = () => {
                   <span>Email Address</span>
                 </label>
                 <p>
-                  <MdOutlineMail color="lightgrey" />
+                  <MdOutlineMail color="grey" />
                   {authUser?.email}
                 </p>
               </div>

@@ -1,0 +1,38 @@
+@use  "./index" as *;
+
+.settings-container {
+    height: 100vh;
+    width: 100%;
+    color: var(--primary);
+    background-color: var(--secondary);
+    @include flex;
+    
+
+    .settings{
+        height: max-content;
+        width:clamp(40vw,60vw, 80vw);
+
+        .theme-options {
+            @include flex;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            gap: 1.5em;
+
+            .theme-button {
+                padding: 1em 2em;
+                border-radius: 10px;
+                border: 1.5px solid var(--primary);
+                cursor: pointer;
+                background-color: var(--base-100);
+                color: var(--primary);
+                font-size: 1em;
+            }
+
+            .active {
+                background-color: var(--accent);
+                color: var(--primary);
+                border-color: var(--primary);
+            }
+        }
+    }
+}

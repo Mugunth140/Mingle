@@ -9,24 +9,30 @@
   justify-content: center;
   align-items: center;
   position: relative;
+  background: var(--secondary);
 }
 
 // Profile Container Styles
 .profile-container {
+  min-height: 80vh;
+  border: 1.5px solid var(--primary);
+  border-radius: 15px;
+  background-color: var(--base);
+
   .profile-detailes {
-    background: $ui-bg;
+    background: var(--base);
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
 
     .profile-camera {
         @include flex;
         justify-content: flex-end;
-        padding: 1em 1em 0em 0em;
+        padding: 0.5em 1em 0em 0em;
         cursor: pointer;
         transition: all 200ms;
 
         &:hover {
-          color: $accent;
+          color: var(--accent);
         }
 
         & > input {
@@ -54,12 +60,12 @@
 
 
     .profile-user-detailes {
-      height: auto;
+      height: 100%;
       width: 100%;
       margin: 0 auto;
-     @include flex;
-     flex-direction: column;
-     padding: 4em 1em;
+      @include flex;
+      flex-direction: column;
+      padding: 4em 1em;
       gap: 1rem;
 
       // Responsive Styles
@@ -74,6 +80,7 @@
         font-size: 1.5rem;
         font-weight: 600;
         gap: 1em;
+        
 
         label {
           display: flex;
@@ -84,6 +91,7 @@
             padding: 0.5rem;
             font-size: 0.8em;
             font-weight: 400;
+            color: var(--primary);
           }
         }
 
@@ -91,7 +99,8 @@
           @include flex;
           justify-content: flex-start;
           gap: 0.5em;
-          border: 1px solid $accent-dark;
+          color: var(--primary);
+          border: 1px solid var(--accent);
           width: clamp(18rem, 26rem, 28rem);
           padding: 0.5em 0.5em 0.5em 1em;
           border-radius: 10px;
@@ -121,6 +130,7 @@
             padding: 0.5rem;
             font-size: 0.8em;
             font-weight: 400;
+            color: var(--primary);
           }
         }
 
@@ -128,10 +138,11 @@
           @include flex;
           justify-content: flex-start;
           gap: 0.5em;
-          border: 1px solid $accent-dark;
+          border: 1px solid var(--accent);
           width: clamp(18rem, 26rem, 28rem);
           padding: 0.5em 0.5em 0.5em 1em;
           border-radius: 10px;
+          color: var(--primary);
 
           // Responsive Styles
           @include respond-to('medium') {
@@ -164,6 +175,7 @@
         label {
           font-size: 1.2rem;
           font-weight: 500;
+          color: var(--primary);
         }
 
         p {
@@ -181,11 +193,13 @@
         label {
           font-size: 1.2rem;
           font-weight: 500;
+          color: var(--primary);
         }
 
         p {
           font-size: 1rem;
           font-weight: 500;
+          color: var(--primary);
         }
       }
     }

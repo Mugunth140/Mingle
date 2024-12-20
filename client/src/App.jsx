@@ -1,6 +1,7 @@
 import  { useEffect , React } from 'react'
-import Navbar from './components/Navbar'
 import  { Routes, Route, Navigate } from 'react-router-dom'
+import ThemeProvider from './components/ThemeProvider'
+import Navbar from './components/Navbar'
 import HomePage  from './pages/HomePage'
 import SignupPage from './pages/SignupPage'
 import LoginPage  from './pages/LoginPage'
@@ -33,7 +34,7 @@ if(isChecking && !authUser) return (
 
   return (
     <>
-   <div>
+   <ThemeProvider>
     <Navbar />
     <Routes >
       <Route path='/' element={authUser ? <HomePage /> : <Navigate to="/login" />} />
@@ -43,7 +44,7 @@ if(isChecking && !authUser) return (
       <Route path='/profile' element={authUser ? <ProfilePage /> : <Navigate to="/login" />} />
     </Routes>
     <Toaster />
-   </div>
+   </ThemeProvider>
     </>
   )
 }

@@ -6,7 +6,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: $bg;
+    background-color: var(--secondary);
 
     .form-container {
         text-align: center;
@@ -14,7 +14,7 @@
         min-width: 325px;
         max-width: 30vw;
         display: flex;
-        border: 1px solid lightgray;
+        border: 1.5px solid var(--primary);
         border-radius: 12px;
         flex-direction: column;
         gap: 0.2rem;
@@ -24,7 +24,7 @@
         & > h1 {
             text-align: center;
             font-size: 2.5em;
-            color: $main-text;
+            color: var(--primary);
             font-weight: 600;
             //padding-top:0.5em;
         }
@@ -32,20 +32,20 @@
         & > p {
             margin-top: 0.5em;
             font-size: 1em;
-            color: lightgray;
+            color: var(--primary);
             font-weight: 600;
         }
 
         label {
             width: 100%;
             text-align: left;
-            color: lightgrey;
+            color: var(--primary);
             font-size: 1em;
             font-weight: 500;
             margin-top: 1.5em;
         }
         .form-item {
-            border: 0.6px solid lightgrey;
+            border: 0.6px solid var(--neutral);
             border-radius: 5px;
             box-shadow: none;
             height: 3rem;
@@ -55,9 +55,9 @@
             padding-left: 1em;
             margin-top: 0.5em;
             padding: 20px 20px;
-            border: 1px solid #d1d5db; /* Soft gray border */
-  border-radius: 5px;         /* Rounded corners */
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); 
+            border: 1px solid var(--neutral); /* Soft gray border */
+            border-radius: 5px;         /* Rounded corners */
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); 
 
             &:focus {
             border: 1px solid white;
@@ -67,9 +67,9 @@
         .form-item > input {
             outline: none;
             border: none;
-            background: transparent;
+            background-color: var(--secondary);
             font-size: 1em;
-            color: lightgrey;
+            color: var(--primary);
             
             & > :focus {
             color: white;
@@ -86,8 +86,8 @@
             font-size: 1em;
             text-transform: capitalize;
             border-radius: 5px;
-            background: $accent;
-            color: $main-text;
+            background: var(--accent);
+            color: var(--primary);
             border: none;
             margin-top: 2em;
             margin-bottom: 1em;
@@ -104,7 +104,7 @@
            
             text-decoration: none;
             margin-left: 2px;
-            color: $accent;
+            color: var(--accent);
         }
     }
 }

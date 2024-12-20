@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
-$primary : rgb(19, 19, 161);
-$bg : #1E232B;
-$main-text: #F6F1F4;
-$accent: rgb(149, 27, 255);
-$accent-light: #6D3CEE;
-$accent-dark: #5327B4;
-$ui-bg:#000033;
+// $primary : rgb(19, 19, 161);
+// $bg : #1E232B;
+// $main-text: #F6F1F4;
+// $accent: #951bff;
+// $accent-light: #7d4afc;
+// $accent-dark: #531ace;
+// $ui-bg:#000033;
 
 
 :root {
@@ -15,16 +15,21 @@ $ui-bg:#000033;
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: $bg;
+  --primary: var(--primary);
+  --secondary: var(--secondary);
+  --accent: var(--accent);
+  --neutral: var(--neutral);
+  --base: var(--base);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
 
+  * {
+    transition: all 0.2s ease-in-out;
+  }
+}
 
 @mixin flex {
   display: flex;

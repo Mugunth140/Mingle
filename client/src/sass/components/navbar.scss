@@ -4,7 +4,7 @@ header{
     width: 100%;
     position: fixed;
     top: 0;
-    background: inherit;
+    background: var(--secondary);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -26,7 +26,7 @@ header{
         font-size: 1.4em;
         font-weight: 400;
         font-family: inherit;
-        color: $main-text;
+        color: var(--primary);
         text-decoration: none;
       }
 
@@ -41,7 +41,7 @@ header{
 
         & > a {
           text-decoration: none;
-          color: inherit;
+          color: var(--primary);
           display: flex;
           align-items: center;
           gap: 0.5em;
