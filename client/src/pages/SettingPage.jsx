@@ -60,7 +60,6 @@ const SettingPage = () => {
                   </div>
                 </div>
                 <br />
-                <hr />
                <div className="preview-content">
                 <div className="preview-receiver">
                   <p>Hey, How it's going ?</p>
