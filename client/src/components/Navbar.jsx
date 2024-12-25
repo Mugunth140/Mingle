@@ -20,20 +20,20 @@ const Navbar = () => {
         <h1 className='logo-text'>Mingle</h1>
         </Link>
       </div>
-      <div className='navbar-links'>
+      <div className='navbar-links' style={{ "--icon-color": "var(--neutral)" }}>
         <Link to='/settings'>
-        <IoSettingsOutline  color='lightgray' size={20} />
+        <IoSettingsOutline  style={{ color: "var(--icon-color)" }} size={20} />
         <h1>settings</h1>
         </Link>
         {
           authUser && <>
             <Link to='/profile'>
-               <IoPersonCircleOutline color='lightgray' size={20} />
+               <IoPersonCircleOutline style={{ color: "var(--icon-color)" }} size={20} />
             <h1>profile</h1>
             </Link>
           
             <Link onClick={logout}>
-              <MdLogout color='lightgray' size={20} />
+              <MdLogout style={{ color: "var(--icon-color)" }} size={20} />
              <h1>logout</h1>
             </Link>
           </>

@@ -5,7 +5,7 @@ const WelcomeChat = () => {
   return (
     <>
     <div className="welcome-container">
-     <img src="/message.png" alt="message" height={400} width={'auto'}/>
+     <img src="/welcome-chat.svg" alt="welcome-img" height={'280em'} width={'auto'}/>
      <h1>Welcome to Mingle</h1>
      <h3>select a contact to start conversation</h3>
     </div>

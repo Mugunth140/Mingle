@@ -6,7 +6,7 @@ import  { toast } from "react-hot-toast";
 
 import { GoPerson } from "react-icons/go";
 import { MdOutlineMail } from "react-icons/md";
-import { FiLock } from "react-icons/fi";
+import { FiLock, FiLoader } from "react-icons/fi";
 import { RiEyeOffLine } from "react-icons/ri";
 import { FaRegEye } from "react-icons/fa6";
 import { Link } from "react-router-dom";
@@ -40,8 +40,8 @@ const SignupPage = () => {
 
   return (
     <div className="signup-container">
-      <form onSubmit={handleSubmit} className="form-container">
-      <center>
+      <form onSubmit={handleSubmit} className="form-container" style={{ "--icon-color": "var(--neutral)" }}>
+      <center >
        <img src="/logo.png" alt="logo" height={64} width={64}/>
         </center>
         <h1>Create Account</h1>
@@ -100,7 +100,7 @@ const SignupPage = () => {
             )}
           </button>
         </div>
-        <button type='submit' disabled={isSignup} className="submit-btn">{isSignup ? 'Loading...' : 'create account'}</button>
+        <button type='submit' disabled={isSignup} className="submit-btn">{isSignup ? <FiLoader size={20} style={{ color: "var(--icon-color)"}} className='spinner' /> : 'create account'}</button>
         <p>
           Already have an account ? <Link to="/login">Login</Link>
         </p>

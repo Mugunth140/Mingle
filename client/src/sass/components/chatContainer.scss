@@ -1,0 +1,11 @@
+@use './index' as *;
+
+.chat-container {
+    height: 100vh;
+    width: 100%;
+    background-color: var(--secondary);
+    color: var(--primary);
+    @include flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}

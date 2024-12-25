@@ -8,6 +8,7 @@ export const useChatStore = create((set) => ({
   isUserLoading: false,
   selectedUser: null,
   isMessagesLoading: false,
+  onlineUsers : [],
 
   getUsers: async (id) => {
     try {
@@ -31,4 +32,8 @@ export const useChatStore = create((set) => ({
       set({ isMessagesLoading: false });
     }
   },
+
+  setSelectedUser: (selectedUser) => {
+    set({ selectedUser: selectedUser });
+  }
 }));

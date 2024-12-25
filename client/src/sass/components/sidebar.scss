@@ -1,1 +1,59 @@
 @use './index' as *;
+
+.user-loader {
+    width:clamp(180px, 18vw, 220px);
+    height: 100vh;
+    background-color: var(--secondary);
+    border: 1.5px solid var(--base);
+    padding-top: 7vh;
+    @include flex;
+    gap: 0.5rem;
+
+    & > span {
+        color: var(--primary);
+    }
+}
+
+.sidebar-container{
+    width:clamp(180px, 18vw, 220px);
+    height:100vh;
+    padding-top: 7vh;
+    background-color: var(--secondary);
+    border: 1.5px solid var(--base);
+    overflow-y: auto;
+    transition: all 1s linear;
+
+    .sidebar-item {
+        @include flex;
+        justify-content: flex-start;
+        background-color: var(--secondary);
+        padding: 0.5em;
+        width: 100%;
+        gap: 1rem;
+        border: none;
+        border-bottom: 1.5px soild var(--base);
+        outline: none;
+
+         & > img {
+            width: clamp(40px, 3vw, 50px);
+            border-radius: 50%;
+         }
+       
+         .sidebar-item-info {
+            h3 {
+                color: var(--primary);
+                font-size: clamp(12px, 1.2vw, 14px);
+                font-weight: 500;
+            }
+
+            span {
+                font-size: clamp(8px, 1vw, 10px);
+            }
+         }
+
+    }
+
+    .selected {
+        background-color: var(--accent);
+    }
+}

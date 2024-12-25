@@ -6,6 +6,7 @@ import { RiEyeOffLine } from "react-icons/ri";
 import { FaRegEye } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import { toast } from "react-hot-toast";
+import { FiLoader } from 'react-icons/fi';
 import '../sass/pages/LoginPage.scss';
 
 const LoginPage = () => {
@@ -36,8 +37,8 @@ const LoginPage = () => {
   return (
     <>
      <div className="login-container">
-      <form onSubmit={handleSubmit} className="form-container">
-        <center>
+      <form onSubmit={handleSubmit} className="form-container" style={{ "--icon-color": "var(--primary)" }}>
+        <center >
        <img src="/logo.png" alt="logo" height={64} width={64}/>
         </center>
         <h1>Welcome to Mingle</h1>
@@ -83,7 +84,7 @@ const LoginPage = () => {
             )}
           </button>
         </div>
-        <button type='submit' disabled={isLogin} className="submit-btn">{isLogin ? 'Loading...' : 'login'}</button>
+        <button type='submit' disabled={isLogin} className="submit-btn">{isLogin ? <FiLoader size={20} style={{ color: "var(--icon-color)"}} className='spinner' /> : 'login'}</button>
         <p>
           Don't have an account ? <Link to="/signup">Signup</Link>
         </p>

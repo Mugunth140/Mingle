@@ -24,7 +24,7 @@ app.use(cors({
 
 //authentication Routes
 app.use("/api/auth", authRoutes)
-app.use("/api/message", messageRoutes)
+app.use("/api/messages", messageRoutes)
 
 //index routes
 app.get("/", (req, res) => {

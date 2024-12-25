@@ -9,10 +9,10 @@ const HomePage = () => {
   const { selectedUser } = useChatStore()
 
   return (
-    <>
+    <div className='home-page-container'>
     <div><SideBar /></div>
     {!selectedUser ? <WelcomeChat /> : <ChatContainer />}
-    </>
+    </div>
   )
 }
 

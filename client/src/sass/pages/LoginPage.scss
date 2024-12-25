@@ -10,19 +10,19 @@
 
     .form-container {
         text-align: center;
-        height: auto;
-        width: clamp(300px, 25%, 400px);
+        height: min-content;
+        width: clamp(300px, 23%, 400px);
         display: flex;
         border: 1.5px solid var(--primary);
         border-radius: 12px;
         flex-direction: column;
         gap: 0.2rem;
-        padding: 2em;
+        padding: clamp(1em, 2vw, 2em);
 
 
         & > h1 {
             text-align: center;
-            font-size: 2.5em;
+            font-size: clamp(1.5em, 2vw, 2.5em);
             color: var(--primary);
             font-weight: 600;
             //padding-top:0.5em;
@@ -31,7 +31,7 @@
         & > p {
             margin-top: 0.5em;
             font-size: 1em;
-            color: var(--primary);
+            color: var(--neutral);
             font-weight: 600;
         }
 

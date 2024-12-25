@@ -1,8 +1,9 @@
-import React from 'react'
+import React from 'react';
+import '../sass/components/chatContainer.scss';
 
 const ChatContainer = () => {
   return (
-    <div>ChatContainer</div>
+    <div className='chat-container'>ChatContainer</div>
   )
 }
 
