@@ -48,19 +48,19 @@ export const FetchUserMessage = async (req, res) => {
 
 export const SendUserMessage = async (req, res) => {
   try {
-    // fetching request data from req
+    // Extract request data
     const { message, image } = req.body;
-    const { id: receiverId } = req.params;
-    const senderId = req.user._id;
+    const { id: receiverId } = req.params; // Get receiver ID from URL
+    const senderId = req.user._id; // Ensure req.user is populated (middleware)
 
-    // creating an temp variable and assigning the base64 image url from cloudinary later
-    let imageUrl;
-    if (imageUrl) {
-      const imageRes = await cloud.uploader.upload(image);
-      imageUrl = imageRes.secure_url;
+    // Initialize imageUrl and upload to Cloudinary if an image is provided
+    let imageUrl = null;
+    if (image) {
+      const imageRes = await cloud.uploader.upload(image, { folder: "user-messages" });
+      imageUrl = imageRes.secure_url; // Get secure URL
     }
 
-    // creating a single message user new keyword and save the process
+    // Create and save the message
     const newMessage = new Message({
       senderId,
       receiverId,
@@ -69,12 +69,14 @@ export const SendUserMessage = async (req, res) => {
     });
     await newMessage.save();
 
-    //future implementation for realtime functionality with socket.io
+    // Future implementation for Socket.IO
+    // Example: io.emit('newMessage', newMessage);
 
-    //returning the single message via json
+    // Return the created message
     res.status(201).json(newMessage);
   } catch (error) {
-    console.log(`Error on SendUserMessage controller ${error.message}`);
-    res.status(500).json({ message: "Internal Server Error" });
+    console.error(`Error in SendUserMessage controller: ${error.message}`);
+    res.status(500).json({ message: "Failed to send the message. Please try again." });
   }
 };
+

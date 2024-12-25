@@ -1,13 +1,74 @@
-@use './index' as *;
+@use "./index" as *;
 
 .chat-container {
-    height: 100vh;
+  height: 100vh;
+  width: 100%;
+  padding-top: 7vh;
+  background-color: var(--secondary);
+  color: var(--primary);
+  @include flex;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 0.6rem;
+
+  .chat-messages {
     width: 100%;
-    padding-top: 7vh;
-    background-color: var(--secondary);
-    color: var(--primary);
-    @include flex;
-    justify-content: space-between;
+    height: 100%;
+    overflow-y: scroll;
+    padding-bottom: 2rem;
+    display: flex;
     flex-direction: column;
-    gap: 0.6rem;
+    gap: 1.5rem;
+  }
+
+  .message-loader{
+    height: 100%;
+    @include flex;
+}
+
+  .message {
+    width: auto;
+    height: auto;
+    padding: 0.8rem 1.5rem;
+
+    .message-image {
+      width: auto;
+      height: clamp(150px, 10vh, 250px);
+      border-radius: 1rem;
+      padding: 0;
+    }
+  }
+
+  .sender {
+    background-color: var(--accent);
+    border-radius: 1rem 1rem 0 1rem;
+    color: var(--primary);
+    align-self: flex-end;
+    margin-right: 1rem;
+    word-break: break-all;
+  }
+
+  .receiver {
+    background-color: var(--base);
+    border-radius: 1rem 1rem 1rem 0;
+    color: var(--primary);
+    align-self: flex-start;
+    margin-left: 1rem;
+    word-break: break-all;
+  }
+
+  .sender-time{
+     text-align: end;
+     padding-right: 1.5rem;
+  }
+
+  .receiver-time{
+    text-align: start;
+    padding-left: 1.5rem;
+  }
+
+  .message-time {
+    font-size: 0.8rem;
+    color: var(--neutral);
+  }
 }
