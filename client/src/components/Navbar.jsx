@@ -13,7 +13,7 @@ const Navbar = () => {
 
   return (
     <>
-    <header>
+    <header className='navbar-container'>
       <div className='navbar-logo'>
         <Link to='/'>
         <img src="/logo.png" alt="logo" height={28} width={28} />
