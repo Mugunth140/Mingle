@@ -11,8 +11,7 @@
     .form-container {
         text-align: center;
         height: auto;
-        min-width: 325px;
-        max-width: 30vw;
+        width: clamp(300px, 25%, 400px);
         display: flex;
         border: 1px solid lightgray;
         border-radius: 12px;
@@ -68,6 +67,7 @@
             border: none;
             background-color: var(--secondary);
             font-size: 1em;
+            width: calc(100% - 2em);
             color: var(--neutral);
             
             & > :focus {

@@ -11,8 +11,7 @@
     .form-container {
         text-align: center;
         height: auto;
-        min-width: 325px;
-        max-width: 30vw;
+        width: clamp(300px, 25%, 400px);
         display: flex;
         border: 1.5px solid var(--primary);
         border-radius: 12px;
@@ -70,6 +69,7 @@
             background-color: var(--secondary);
             font-size: 1em;
             color: var(--primary);
+            width: calc(100% - 2em);
             
             & > :focus {
             color: white;
@@ -94,7 +94,6 @@
         }
 
         .showpassword-btn {
-
             background: transparent;
             border: none;
             transition: all 1s;
