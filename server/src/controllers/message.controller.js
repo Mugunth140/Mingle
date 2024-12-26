@@ -1,6 +1,7 @@
 import cloud from "../lib/cloud.js";
 import Message from "../models/message.model.js";
 import User from "../models/user.model.js";
+import { getReceiverSocketId, io } from "../lib/socket.js";
 
 export const UserSidebar = async (req, res) => {
   try {
@@ -8,9 +9,7 @@ export const UserSidebar = async (req, res) => {
     const loggedUserId = req.user._id;
 
     // fetching all users without the password feild with find() except the current user 
-    const filteredUser = await User.find({ _id: { $ne: loggedUserId } }).select(
-      "-password"
-    );
+    const filteredUser = await User.find({ _id: { $ne: loggedUserId } }).select("-password");
 
     res.status(200).json(filteredUser);
 
@@ -69,8 +68,11 @@ export const SendUserMessage = async (req, res) => {
     });
     await newMessage.save();
 
-    // Future implementation for Socket.IO
-    // Example: io.emit('newMessage', newMessage);
+   
+    const receiverSocketId = getReceiverSocketId(receiverId);
+    if (receiverSocketId) {
+      io.to(receiverSocketId).emit("newMessage", newMessage);
+    }
 
     // Return the created message
     res.status(201).json(newMessage);

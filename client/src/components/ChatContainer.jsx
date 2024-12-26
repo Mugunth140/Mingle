@@ -22,13 +22,13 @@ const ChatContainer = () => {
 
   useEffect(() => {
     getMessages(selectedUser._id);
-    // subscribeToMessages();
-    // return () => unsubscribeFromMessages();
+    subscribeToMessages();
+    return () => unsubscribeFromMessages();
   }, [
     selectedUser._id,
     getMessages,
-    // subscribeToMessages,
-    // unsubscribeFromMessages,
+    subscribeToMessages,
+    unsubscribeFromMessages,
   ]);
 
   useEffect(() => {
@@ -58,6 +58,7 @@ const ChatContainer = () => {
                 className={`message ${
                   message.senderId === authUser._id ? "sender" : "receiver"
                 }`}
+                ref={messageEndRef}
               >
                 {message.image && (
                   <img

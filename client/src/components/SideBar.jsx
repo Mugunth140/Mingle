@@ -5,9 +5,13 @@ import { FiLoader } from "react-icons/fi";
 import "../sass/components/sidebar.scss";
 
 const SideBar = () => {
-  const { users, isUserLoading, getUsers, setSelectedUser, selectedUser } =
-    useChatStore();
+  const { users, isUserLoading, getUsers, setSelectedUser, selectedUser } =useChatStore();
   const { onlineUsers } = useAuthStore();
+
+
+  // const filteredUsers = showOnlineOnly
+  //   ? users.filter((user) => onlineUsers.includes(user._id))
+  //   : users;
 
   if (isUserLoading)
     return (
@@ -43,8 +47,8 @@ const SideBar = () => {
           <img src={user.profilepic || "/avatar.png"} alt={user.username} />
           <div className="sidebar-item-info">
             <h3>{user.username}</h3>
-            <span style={{ color: onlineUsers ? "green" : "grey" }}>
-              {onlineUsers ? "online" : "offline"}
+            <span style={{ color: onlineUsers.includes(user._id) ? "green" : "grey" }}>
+            {onlineUsers.includes(user._id) ? "Online" : "Offline"}
             </span>
           </div>
         </button>
