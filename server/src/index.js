@@ -19,7 +19,8 @@ const PORT = process.env.PORT;
 const __dirname = path.resolve();
 
 //middleware
-app.use(express.json());
+app.use(express.json({ limit: '3mb' }));
+app.use(express.urlencoded({ limit: '3mb', extended: true }));
 app.use(cookieParser());
 app.use(
   cors({
