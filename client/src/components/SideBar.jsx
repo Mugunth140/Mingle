@@ -8,6 +8,9 @@ const SideBar = () => {
   const { users, isUserLoading, getUsers, setSelectedUser, selectedUser } =useChatStore();
   const { onlineUsers } = useAuthStore();
 
+  useEffect(() => {
+    getUsers();
+  }, [getUsers]);
 
   // const filteredUsers = showOnlineOnly
   //   ? users.filter((user) => onlineUsers.includes(user._id))
@@ -30,10 +33,6 @@ const SideBar = () => {
       </>
     );
 
-  useEffect(() => {
-    getUsers();
-  }, [getUsers]);
-
   return (
     <aside className="sidebar-container">
       {users.map((user) => (
@@ -44,7 +43,7 @@ const SideBar = () => {
           }`}
           onClick={() => setSelectedUser(user)}
         >
-          <img src={user.profilepic || "/avatar.png"} alt={user.username} />
+          <img src={user.profilepic || "/avatar.png"} alt={user.username} loading="lazy"/>
           <div className="sidebar-item-info">
             <h3>{user.username}</h3>
             <span style={{ color: onlineUsers.includes(user._id) ? "green" : "grey" }}>
