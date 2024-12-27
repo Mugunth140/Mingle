@@ -51,13 +51,17 @@
   
         .message-input {
           width: 100%;
-          border: 1px solid var(--base);
+          border: 1px solid var(--accent);
           background-color: var(--base);
           color: var(--primary);
           border-radius: 1rem;
           padding: 1rem;
           font-size: 0.875rem;
           outline-color: transparent;
+
+          &:active,::-moz-focus-outer,:focus  {
+            outline: none;
+          }
   
           @media (min-width: 640px) {
             font-size: 1rem;
@@ -69,10 +73,10 @@
         }
   
         .file-button {
-          display: none;
+          width: clamp(3.5rem, 4rem, 4.5rem);
           @include flex;
          border: none;
-          outline: none;
+        outline: none;
          border-radius: 50%;
          padding: 1rem;
          background-color: var(--base);
@@ -102,7 +106,7 @@
         outline: none;
         border-radius: 15px;
         padding: 1rem;
-        background-color: var(--base);
+        background-color: var(--accent);
       }
     }
   }

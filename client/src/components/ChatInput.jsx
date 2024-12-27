@@ -97,7 +97,7 @@ const ChatInput = () => {
         </div>
         <button
           type="submit"
-          className="send-button"
+          className="send-button active"
           disabled={!text.trim() && !imagePreview}
         >
         <MdSend size={20} style={{ color: "var(--icon-color)"}} />

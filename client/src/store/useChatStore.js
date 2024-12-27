@@ -4,15 +4,15 @@ import { Server } from "../lib/axios";
 import { useAuthStore } from "./useAuthStore";
 
 export const useChatStore = create((set, get) => ({
-  messages: [],
   users: [],
+  messages: [],
   isUserLoading: false,
   selectedUser: null,
   isMessagesLoading: false,
 
 
     getUsers: async (id) => { 
-set({ isUserLoading: true });
+    set({ isUserLoading: true });
     try {
       const res = await Server.get("/messages/users");
       set({ users: res.data });

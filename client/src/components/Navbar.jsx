@@ -1,15 +1,17 @@
 import React from 'react';
+import  useWindowSize from '../store/useWindowSize';
+import HamMenu from '../responsive/HamMenu';
 import { Link } from 'react-router-dom';
-import '../sass/components/navbar.scss';
 import {useAuthStore} from '../store/useAuthStore';
 import { IoSettingsOutline } from "react-icons/io5";
 import { IoPersonCircleOutline } from "react-icons/io5";
 import { MdLogout } from "react-icons/md";
+import '../sass/components/navbar.scss';
 
 const Navbar = () => {
 
-
   const {logout, authUser} = useAuthStore();
+  const {device} = useWindowSize();
 
   return (
     <>
@@ -20,7 +22,7 @@ const Navbar = () => {
         <h1 className='logo-text'>Mingle</h1>
         </Link>
       </div>
-      <div className='navbar-links' style={{ "--icon-color": "var(--neutral)" }}>
+      {device === 'mobile' ? <HamMenu /> : (<div className='navbar-links' style={{ "--icon-color": "var(--neutral)" }}>
         <Link to='/settings'>
         <IoSettingsOutline  style={{ color: "var(--icon-color)" }} size={20} />
         <h1>settings</h1>
@@ -38,10 +40,12 @@ const Navbar = () => {
             </Link>
           </>
         }
-      </div>
+      </div>)
+      }
     </header>
     </>
   )
 }
+
 
 export default Navbar

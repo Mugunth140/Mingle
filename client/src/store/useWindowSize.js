@@ -1,49 +1,40 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
-// Define the breakpoints
-const breakpoints = {
-  mobile: 480,
-  small: 600,
-  medium: 900,
-  large: 1200,
+const getDeviceType = (width) => {
+  if (width < 768) return "mobile";
+  if (width >= 768 && width < 1024) return "tablet";
+  return "desktop";
 };
 
 const useWindowSize = () => {
-  const [windowSize, setWindowSize] = useState({
+  const [windowSize, setWindowSize] = useState(() => ({
     width: window.innerWidth,
-    breakpoint: getBreakpoint(window.innerWidth),
-  });
+    height: window.innerHeight,
+    device: getDeviceType(window.innerWidth),
+  }));
 
   useEffect(() => {
     const handleResize = () => {
-      setWindowSize({
-        width: window.innerWidth,
-        breakpoint: getBreakpoint(window.innerWidth),
+      setWindowSize((prev) => {
+        const newWidth = window.innerWidth;
+        const newDevice = getDeviceType(newWidth);
+        if (prev.width === newWidth && prev.device === newDevice) return prev;
+
+        return {
+          width: newWidth,
+          height: window.innerHeight,
+          device: newDevice,
+        };
       });
     };
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
+    handleResize(); // Set initial size
 
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return windowSize;
-};
-
-const getBreakpoint = (width) => {
-  if (width < breakpoints.mobile) {
-    return 'mobile';
-  } else if (width < breakpoints.small) {
-    return 'small';
-  } else if (width < breakpoints.medium) {
-    return 'medium';
-  } else if (width < breakpoints.large) {
-    return 'large';
-  } else {
-    return 'large';
-  }
 };
 
 export default useWindowSize;

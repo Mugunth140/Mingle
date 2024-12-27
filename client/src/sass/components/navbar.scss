@@ -1,61 +1,90 @@
-@use './index' as *;
+@use "./index" as *;
 
-.navbar-container{
-    width: 100%;
-    height: 7vh;
-    position: fixed;
-    top: 0;
-    background: var(--secondary);
+.navbar-container {
+  width: 100%;
+  height: 7vh;
+  position: fixed;
+  top: 0;
+  background: var(--secondary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9;
+  padding: 1em 0;
+  -webkit-box-shadow: 0px 1.5px 0px 0px var(--base);
+  -moz-box-shadow: 0px 1.5px 0px 0px var(--base);
+  box-shadow: 0px 1.5px 0px 0px var(--base);
+
+  .navbar-logo {
+    width: 45%;
+
+    & > a {
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+    }
+
+    .logo-text {
+      font-size: 1.4em;
+      font-weight: 400;
+      font-family: inherit;
+      color: var(--primary);
+      text-decoration: none;
+    }
+  }
+
+  .navbar-links {
+    width: 45%;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
-    z-index: 9;
-    padding: 1em 0;
- -webkit-box-shadow: 0px 1.5px 0px 0px var(--base);
-    -moz-box-shadow: 0px 1.5px 0px 0px var(--base);
-         box-shadow: 0px 1.5px 0px 0px var(--base);
-   
+    gap: 2.5em;
 
-    .navbar-logo {
-        width: 45%;
-        
-        & > a {
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        gap: 0.5em;
-        }
+    & > a {
+      text-decoration: none;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
 
-      .logo-text{
-        font-size: 1.4em;
+      & > h1 {
+        font-size: 1.3em;
         font-weight: 400;
         font-family: inherit;
-        color: var(--primary);
-        text-decoration: none;
       }
+    }
+  }
+}
 
+@media (max-width: 1024px) {
+  .navbar-container {
+    justify-content: space-between;
+    padding: 0rem 2.5rem 0rem 2rem;
+  }
+
+  .ham-menu {
+    display: flex;
+    flex-direction: column;
+    flex-direction: column;
+    gap: 0.5rem;
+    .menu-line {
+      display: inline-block;
+      height: 2px;
+      width: 2.5rem;
+      background-color: var(--primary);
+    }
+  }
+
+  .Ham-active {
+    .menu-line:first-child {
+      transform: rotate(45deg);
+      transform-origin: 35% 0%;
     }
 
-    .navbar-links{
-        width: 45%;
-        display: flex;
-        justify-content:flex-end;
-        align-items: center;
-        gap: 2.5em;
-
-        & > a {
-          text-decoration: none;
-          color: var(--primary);
-          display: flex;
-          align-items: center;
-          gap: 0.5em;
-
-          & > h1 {
-            font-size: 1.3em;
-            font-weight: 400;
-            font-family: inherit;
-          }
-
-        }
+    .menu-line:last-child {
+      transform: rotate(-45deg);
+      transform-origin: 25% 0%;
     }
+  }
 }
