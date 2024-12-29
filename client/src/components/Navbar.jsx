@@ -1,6 +1,6 @@
 import React from 'react';
 import  useWindowSize from '../store/useWindowSize';
-import HamMenu from '../responsive/HamMenu';
+import HamMenu from '../mobile/HamMenu';
 import { Link } from 'react-router-dom';
 import {useAuthStore} from '../store/useAuthStore';
 import { IoSettingsOutline } from "react-icons/io5";

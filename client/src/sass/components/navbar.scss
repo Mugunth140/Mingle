@@ -68,6 +68,7 @@
     flex-direction: column;
     flex-direction: column;
     gap: 0.5rem;
+    z-index: 10;
     .menu-line {
       display: inline-block;
       height: 2px;
@@ -76,7 +77,7 @@
     }
   }
 
-  .Ham-active {
+  .ham-active {
     .menu-line:first-child {
       transform: rotate(45deg);
       transform-origin: 35% 0%;
@@ -86,5 +87,46 @@
       transform: rotate(-45deg);
       transform-origin: 25% 0%;
     }
+  }
+
+  .ham-menu-links {
+    position:fixed;
+    top: 0;
+    right: -100%;
+    background-color: var(--base);
+    height: 100vh;
+    width: min(25rem, 100%);
+    transition: right 600ms ease-in-out;
+    z-index:8;
+
+    & > ul {
+      width: 100%;
+      height: 100%;
+      list-style: none;
+      @include flex;
+      justify-content: flex-start;
+      flex-direction: column;
+      padding-top: 1rem ;
+      gap: 3rem;
+
+      #ham-logout {
+        width: 100%;
+        padding: 0.5em 0em;
+        text-align: center;
+        margin-top: auto;
+        background-color: rgb(211, 6, 6);
+      }
+
+      & > li a {
+        text-decoration: none;
+        color: var(--primary);
+      }
+
+    }
+
+  }
+
+  .show-menu {
+    right: 0;
   }
 }
