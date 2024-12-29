@@ -1,7 +1,7 @@
 import  axios from 'axios';
 
 export const Server = axios.create({
-    baseURL: import.meta.env.CLIENT_MODE === "production" ? `${import.meta.env.SERVER_URL}/api` : "http://localhost:8080/api",
+    baseURL: "https://mingle-backend-t56t.onrender.com/api",
     withCredentials: true,
 })
 
