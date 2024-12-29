@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 import express from "express";
 import cookieParser from "cookie-parser";
 import cors from "cors";
-import path from "path";
+//import path from "path";
 
 //local imports
 import { connectDB } from "./lib/db.js";
@@ -16,7 +16,7 @@ import { app, server } from "./lib/socket.js";
 //app configuration
 dotenv.config();
 const PORT = process.env.PORT;
-const __dirname = path.resolve();
+//const __dirname = path.resolve();
 
 //middleware
 app.use(express.json({ limit: '3mb' }));
@@ -33,13 +33,17 @@ app.use(
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
 
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "../client/dist")));
+app.get("/", (req, res) => {
+  res.send("<center><h1>Mingle Backend</h1></center>");
+});
 
-  app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "../client", "dist", "index.html"));
-  });
-}
+// if (process.env.NODE_ENV === "production") {
+//   app.use(express.static(path.join(__dirname, "../client/dist")));
+
+//   app.get("*", (req, res) => {
+//     res.sendFile(path.join(__dirname, "../client", "dist", "index.html"));
+//   });
+// }
 
 server.listen(PORT, () => {
   console.log("server is running on PORT:" + PORT);
