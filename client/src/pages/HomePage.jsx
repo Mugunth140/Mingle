@@ -1,4 +1,3 @@
-import React from 'react'
 import { useChatStore } from '../store/useChatStore'
 import SideBar from '../components/SideBar'
 import WelcomeChat from '../components/WelcomeChat'

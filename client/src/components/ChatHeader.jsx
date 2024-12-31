@@ -1,4 +1,3 @@
-import React from "react";
 import { IoIosArrowBack } from "react-icons/io";
 import { useChatStore } from "../store/useChatStore";
 import "../sass/components/chatHeader.scss";

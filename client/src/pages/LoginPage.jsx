@@ -1,4 +1,4 @@
-import {React, useState} from 'react';
+import { useState } from 'react';
 import { useAuthStore } from '../store/useAuthStore';
 import { MdOutlineMail } from "react-icons/md";
 import { FiLock } from "react-icons/fi";
@@ -86,7 +86,7 @@ const LoginPage = () => {
         </div>
         <button type='submit' disabled={isLogin} className="submit-btn">{isLogin ? <FiLoader size={20} style={{ color: "var(--icon-color)"}} className='spinner' /> : 'login'}</button>
         <p>
-          Don't have an account ? <Link to="/signup">Signup</Link>
+          Don`&asop;`t have an account ? <Link to="/signup">Signup</Link>
         </p>
       </form>
     </div>

@@ -1,4 +1,4 @@
-import {React, useState} from "react";
+import { useState} from "react";
 import { useAuthStore } from "../store/useAuthStore";
 import { GoPerson } from "react-icons/go";
 import { MdOutlineMail } from "react-icons/md";

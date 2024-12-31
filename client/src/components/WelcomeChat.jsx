@@ -1,4 +1,3 @@
-import React from 'react';
 import '../sass/components/welcomeChat.scss';
 
 const WelcomeChat = () => {

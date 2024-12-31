@@ -1,5 +1,5 @@
-import React from "react";
 import useThemeStore from "../store/useThemeStore";
+import PropTypes from 'prop-types';
 
 const themes = {
   dark: {
@@ -77,6 +77,10 @@ const ThemeProvider = ({ children }) => {
       {children}
     </div>
   );
+};
+
+ThemeProvider.propTypes = {
+  children: PropTypes.node.isRequired,
 };
 
 export default ThemeProvider;

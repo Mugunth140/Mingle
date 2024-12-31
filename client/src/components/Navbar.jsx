@@ -1,4 +1,3 @@
-import React from 'react';
 import  useWindowSize from '../store/useWindowSize';
 import HamMenu from '../mobile/HamMenu';
 import { Link } from 'react-router-dom';

@@ -3,7 +3,6 @@ import { Server } from "../lib/axios";
 import { toast } from "react-hot-toast";
 import { io } from "socket.io-client";
 
-const BASE_URL = import.meta.env.VITE_ENV_MODE === "production" ? `${import.meta.env.VITE_SERVER_URL}/api` : console.log("error on BASE_URL");
 const SERVER_PORT = import.meta.env.VITE_SERVER_PORT;
 
 export const useAuthStore = create((set, get) => ({
