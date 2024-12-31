@@ -10,7 +10,6 @@
     "start": "vite preview"
   },
   "dependencies": {
-    "@vitejs/plugin-react": "^4.3.4",
     "axios": "^1.7.9",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
@@ -20,7 +19,6 @@
     "react-router-dom": "^7.0.2",
     "sass": "^1.83.0",
     "socket.io-client": "^4.8.1",
-    "vite": "^6.0.1",
     "zustand": "^5.0.2"
   },
   "devDependencies": {
