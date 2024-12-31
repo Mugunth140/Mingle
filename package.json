@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "server/src/index.js",
   "scripts": {
-    "build": "npm install --prefix server --force && npm install --prefix client --force && npm run build --prefix client",
+    "build": "npm install --prefix server --force && npm install --prefix client --force",
     "start": "npm run start --prefix server",
     "dev" : "npm run server --prefix server"
   },
