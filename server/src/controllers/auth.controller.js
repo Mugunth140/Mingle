@@ -3,7 +3,7 @@ import CryptoJS from "crypto-js";
 import { tokenGenerator } from "../utils/utils.js";
 import cloud from "../lib/cloud.js";
 
-const SECRET_KEY = "my_secret_key";
+const SECRET_KEY = process.env.JWT_KEY;
 
 const encryptPassword = (password) => {
   return CryptoJS.AES.encrypt(password, SECRET_KEY).toString();

@@ -1,13 +1,17 @@
 {
   "name": "mingle",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server/src/index.js",
   "scripts": {
-    "build" : "npm install --prefix server && npm install --prefix client && npm run build --prefix client",
-    "start" : "npm run start --prefix server"
+    "build": "npm install --prefix server && npm install --prefix client && npm run build --prefix client",
+    "start": "npm run start --prefix server",
+    "dev" : "npm run server --prefix server"
   },
   "keywords": [],
   "author": "mugunth140",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
 }

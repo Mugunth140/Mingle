@@ -1,17 +1,23 @@
-import jwt from "jsonwebtoken"
+import jwt from "jsonwebtoken";
 
 export const tokenGenerator = (userId, res) => {
-    const token = jwt.sign({userId}, process.env.JWT_KEY, {
-        expiresIn : "3d"
-    })
-   
-    res.cookie("token", token, {
-        maxAge: 7 * 24 * 60 * 60 * 1000,
-        httpOnly : true,
-        sameSite: 'None',
-        secure : process.env.NODE_ENV !== "development"
-    })
+  if (!process.env.JWT_KEY) {
+    throw new Error("JWT_KEY is not defined in the environment variables.");
+  }
 
-    return token
+  const token = jwt.sign({ userId }, process.env.JWT_KEY, {
+    expiresIn: "3d",
+  });
 
-}
+  // Determine if the app is running on localhost
+  const isLocalhost = process.env.NODE_ENV !== "production";
+
+  res.cookie("token", token, {
+    maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+    httpOnly: true,
+    sameSite: isLocalhost ? "Strict" : "Lax", // Use Strict for localhost, Lax for production
+    secure: !isLocalhost, // Secure only in production (not for localhost)
+  });
+
+  return token;
+};

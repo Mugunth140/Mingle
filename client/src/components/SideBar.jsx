@@ -5,7 +5,7 @@ import { FiLoader } from "react-icons/fi";
 import "../sass/components/sidebar.scss";
 
 const SideBar = () => {
-  const { users, isUserLoading, getUsers, setSelectedUser, selectedUser } =useChatStore();
+  const { users, isUserLoading, getUsers, setSelectedUser, selectedUser } = useChatStore();
   const { onlineUsers } = useAuthStore();
 
   useEffect(() => {
