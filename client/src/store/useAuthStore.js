@@ -3,7 +3,7 @@ import { Server } from "../lib/axios";
 import { toast } from "react-hot-toast";
 import { io } from "socket.io-client";
 
-const SERVER_PORT = import.meta.env.VITE_SERVER_PORT;
+const SERVER_PORT = import.meta.env.VITE_SERVER_PORT || 8080;
 
 export const useAuthStore = create((set, get) => ({
     authUser: null,
