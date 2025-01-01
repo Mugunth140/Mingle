@@ -3,7 +3,7 @@ import { Server } from "../lib/axios";
 import { toast } from "react-hot-toast";
 import { io } from "socket.io-client";
 
-const SERVER_PORT = import.meta.env.VITE_SERVER_PORT || 8080;
+const SOCKET_URL = `wss://${import.meta.env.VITE_SERVER_URL}`;
 
 export const useAuthStore = create((set, get) => ({
     authUser: null,
@@ -86,7 +86,7 @@ export const useAuthStore = create((set, get) => ({
         const { authUser } = get();
         if (!authUser || get().socket?.connected) return;
     
-        const socket = io(`ws://localhost:${SERVER_PORT}`, {
+        const socket = io(SOCKET_URL, {
           query: {
             userId: authUser._id,
           },
