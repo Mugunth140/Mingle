@@ -7,7 +7,7 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: "*",
+    origin: ["https://mingle-o93j.onrender.com" ,"http://localhost:5173"],
   }
 });
 
