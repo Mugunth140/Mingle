@@ -49,10 +49,12 @@ const url = `https://mingle-o93j.onrender.com/coldstart`;
 const interval = 30000;
 
 function reloadWebsite() {
-  axios
-    .get(url)
+  fetch(url)
     .then((response) => {
-      console.log("website reloded");
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      console.log("server started");
     })
     .catch((error) => {
       console.error(`Error : ${error.message}`);
