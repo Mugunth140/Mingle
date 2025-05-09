@@ -86,7 +86,7 @@ const LoginPage = () => {
         </div>
         <button type='submit' disabled={isLogin} className="submit-btn">{isLogin ? <FiLoader size={20} style={{ color: "var(--icon-color)"}} className='spinner' /> : 'login'}</button>
         <p>
-          Don`&asop;`t have an account ? <Link to="/signup">Signup</Link>
+          Don't have an account ? <Link to="/signup">Signup</Link>
         </p>
       </form>
     </div>

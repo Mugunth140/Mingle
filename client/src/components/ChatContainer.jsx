@@ -54,7 +54,7 @@ const ChatContainer = () => {
           messages.map((message) => (
             <>
               <div
-                key={message._id}
+                key={message.id}
                 className={`message ${
                   message.senderId === authUser._id ? "sender" : "receiver"
                 }`}

@@ -41,6 +41,25 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
+app.get("/coldstart", (res) => {
+  res.send("Starting Server!");
+});
+
+const url = `https://mingle-o93j.onrender.com/coldstart`;
+const interval = 30000;
+
+function reloadWebsite() {
+  axios
+    .get(url)
+    .then((response) => {
+      console.log("website reloded");
+    })
+    .catch((error) => {
+      console.error(`Error : ${error.message}`);
+    });
+}
+setInterval(reloadWebsite, interval);
+
 server.listen(PORT, () => {
   console.log("server is running on PORT:" + PORT);
   connectDB();
