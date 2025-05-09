@@ -23,9 +23,9 @@ app.use(express.json({ limit: '3mb' }));
 app.use(express.urlencoded({ limit: '3mb', extended: true }));
 app.use(cookieParser());
 app.use(cors({
-  origin: process.env.CLIENT_URL,  
+  origin: [process.env.CLIENT_URL,"https://mugunth140.github.io/coldstarter/" ], 
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  credentials: true, // Allow cookies or authorization headers
+  credentials: true,
 }));
 
 //authentication Routes
