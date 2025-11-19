@@ -61,11 +61,11 @@ const SettingPage = () => {
                 <br />
                <div className="preview-content">
                 <div className="preview-receiver">
-                  <p>Hey, How it`&asop;`s going ?</p>
+                  <p>Hey, How it&apos;s going ?</p>
                   <span>8:25 AM</span>
                 </div>
                 <div className="preview-sender">
-                  <p>I`&asop;`m Good, just working on new some features</p>
+                  <p>I&apos;m Good, just working on new some features</p>
                   <span>8:26 AM</span>
                 </div>
                 </div>
